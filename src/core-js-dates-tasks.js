@@ -35,7 +35,7 @@ function getTime(date) {
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}`;
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 /**
@@ -49,8 +49,35 @@ function getTime(date) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-function getDayName(/* date */) {
-  throw new Error('Not implemented');
+function getDayName(date) {
+  const day = new Date(date).getDay();
+  let dayName = '';
+  switch (day) {
+    case 0:
+      dayName = 'Sunday';
+      break;
+    case 1:
+      dayName = 'Monday';
+      break;
+    case 2:
+      dayName = 'Tuesday';
+      break;
+    case 3:
+      dayName = 'Wednesday';
+      break;
+    case 4:
+      dayName = 'Thursday';
+      break;
+    case 5:
+      dayName = 'Friday';
+      break;
+    case 6:
+      dayName = 'Saturday';
+      break;
+    default:
+      dayName = '';
+  }
+  return dayName;
 }
 
 /**
